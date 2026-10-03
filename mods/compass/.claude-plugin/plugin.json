@@ -1,0 +1,40 @@
+{
+  "name": "compass",
+  "version": "0.1.0",
+  "description": "A side pane that tracks the session's goal, decisions, hypotheses or findings grouped into topics, and one explanatory visual.",
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "updaterModel": {
+      "type": "string",
+      "title": "Updater model",
+      "description": "Which model rewrites the compass after a turn: sonnet-low and haiku run a separate small completion over the new messages; fork asks the session model over the whole transcript (cache-friendly, costs more).",
+      "default": "sonnet-low",
+      "options": ["sonnet-low", "haiku", "fork"]
+    },
+    "sessionType": {
+      "type": "string",
+      "title": "Session type",
+      "description": "What kind of session this is, which sets the section title and the kinds of items it lists. auto lets the updater infer it from the conversation; any other value fixes it.",
+      "default": "auto",
+      "options": ["auto", "design", "debugging", "refactor", "research", "review"]
+    },
+    "trackOpenQuestions": {
+      "type": "boolean",
+      "title": "Track open questions",
+      "description": "Also list questions the conversation raised and left unanswered.",
+      "default": false
+    },
+    "trackRejected": {
+      "type": "boolean",
+      "title": "Track rejected options",
+      "description": "Also list options that were considered and dropped, with a one-line reason.",
+      "default": false
+    },
+    "autoOpen": {
+      "type": "boolean",
+      "title": "Open pane at session start",
+      "description": "Open the Compass pane when a session starts. The engine seats an unasked pane only from 144 terminal columns.",
+      "default": true
+    }
+  }
+}
